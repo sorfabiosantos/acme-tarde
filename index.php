@@ -6,7 +6,7 @@ use CoffeeCode\Router\Router;
 
 ob_start();
 
-$route = new Router("http://localhost:8080/acme-tarde", ":");
+$route = new Router(url(), ":");
 
 $route->namespace("Source\Web");
 // Rotas amigáveis da área pública
@@ -28,6 +28,7 @@ $route->group(null);
 
 $route->group("/admin");
 $route->get("/", "Admin:home");
+$route->get("/clientes", "Admin:clients");
 $route->group(null);
 
 $route->get("/ops/{errcode}", "Site:error");

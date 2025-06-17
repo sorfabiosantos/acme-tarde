@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 use CoffeeCode\Router\Router;
 
-$route = new Router("http://localhost:8080/acme-tarde/api",":");
+$route = new Router(url("api"),":");
 
 $route->namespace("Source\WebService");
 

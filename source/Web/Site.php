@@ -17,11 +17,7 @@ class Site extends Controller
 
     public function about(): void
     {
-        echo "Olha que bonito o SOBRE do Site...";
-//        echo $this->view->render("about", [
-//            "name" => "Fábio Luis Santos",
-//            "age" => 49
-//        ]);
+        echo $this->view->render("about", []);
     }
 
     public function contact(): void

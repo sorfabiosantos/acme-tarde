@@ -20,8 +20,8 @@
             </a>
             
             <ul class="nav-menu">
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/sobre">Sobre Nós</a></li>
+                <li><a href="<?= url() ?>>" class="active">Home</a></li>
+                <li><a href="<?= url("sobre"); ?>">Sobre Nós</a></li>
                 <li><a href="/contato">Contato</a></li>
             </ul>
             
@@ -66,7 +66,7 @@
                     <h3>Empresa</h3>
                     <ul>
                         <li><a href="/sobre">Sobre Nós</a></li>
-                        <li><a href="/contato">Contato</a></li>
+                        <li><a href="<?= url() ?>">Contato</a></li>
                         <li><a href="/blog">Blog</a></li>
                         <li><a href="/suporte">Suporte</a></li>
                     </ul>

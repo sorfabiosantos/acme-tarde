@@ -4,4 +4,4 @@ $this->layout("_theme", []);
 
 ?>
 
-<h1>Home Admin eu sou o conteúdo</h1>
+<h1>Olá, Admin - Clientes!</h1>

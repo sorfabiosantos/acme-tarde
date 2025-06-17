@@ -1,5 +1,5 @@
 {
-  "name": "fabio3268/inf-3at-2025",
+  "name": "fabio3268/acme-tarde",
   "description": "Estrutura básica de uma aplicação MVC",
   "minimum-stability": "stable",
   "authors": [
@@ -24,6 +24,7 @@
   },
   "require": {
     "php": ">=8.1",
+    "ext-pdo": ">=7.4",
     "coffeecode/router" : "2.0.2",
     "firebase/php-jwt": "v6.11.1",
     "league/plates": "v3.6.0"

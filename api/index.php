@@ -26,6 +26,7 @@ $route->namespace("Source\WebService");
 $route->group("/users");
 
 $route->post("/login", "Users:login");
+$route->post("/add", "Users:createUser");
 
 //http://localhost:8080/acme-tarde/api/users/
 $route->get("/", "Users:listUsers");
@@ -33,8 +34,7 @@ $route->get("/", "Users:listUsers");
 $route->get("/id/{id}", "Users:listUserById");
 $route->get("/id/", "Users:listUserById");
 //http://localhost:8080/acme-tarde/api/users/add
-$route->post("/add", "Users:createUser");
-//http://localhost:8080/acme-tarde/api/users
+
 $route->put("/update", "Users:updateUser");
 //http://localhost:8080/acme-tarde/api/users/delete/id/38
 $route->delete("/delete/id/{id}", "Users:deleteUser");

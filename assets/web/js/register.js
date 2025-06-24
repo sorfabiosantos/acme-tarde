@@ -2,19 +2,31 @@ import {
     HttpUser
 } from "../../_shared/HttpUser.js";
 
-const api = new HttpUser();
 
-console.log("API inicializada", api);
+
+// console.log("API inicializada", api);
 
 const formRegister = document.querySelector("#formRegister");
 
+// const api = new HttpUser();
+// http://localhost:8080/acme-tarde/api/users/add
 formRegister.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const userData = new FormData(formRegister);
-    try {
-        const userCreated = await api.createUser(userData);
-        console.log("Usuário criado com sucesso:", userCreated);
-    } catch (error) {
-        console.error("Erro ao criar usuário:", error);
-    }
+    /*const userData = new FormData(formRegister);
+    const userCreated = await api.createUser(userData);
+    console.log(userCreated);*/
+
+    fetch("http://localhost:8080/acme-tarde/api/users/add",
+        {
+            method: "POST",
+            body: new FormData(formRegister)
+        }
+    ).then((respose) => {
+        console.log(respose);
+        respose.json().then((user) => {
+            console.log(user);
+        });
+    });
+
+
 });

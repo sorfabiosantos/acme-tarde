@@ -33,7 +33,7 @@ class Users extends Api
         );
 
         if(!$user->insert()){
-            $this->call(200, "internal_server_error", $user->getErrorMessage(), "error")->back();
+            $this->call(400, "internal_server_error", $user->getErrorMessage(), "error")->back();
             return;
         }
         // montar $response com as informações necessárias para mostrar no front

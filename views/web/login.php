@@ -18,4 +18,6 @@ echo "Login Page...<br>";
     <button>Entrar</button>
 </form>
 
+<button id="getUser">GET USER by ID</button>
+
 <script type="module" src="<?= url("assets/web/js/login.js"); ?>"></script>

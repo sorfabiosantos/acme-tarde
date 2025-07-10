@@ -2,14 +2,10 @@ import {
     HttpUser
 } from "../../_shared/HttpUser.js";
 
-
-
-// console.log("API inicializada", api);
-
 const formRegister = document.querySelector("#formRegister");
 
-// const api = new HttpUser();
-// http://localhost:8080/acme-tarde/api/users/add
+const api = new HttpUser();
+console.log("API inicializada", api);
 formRegister.addEventListener("submit", async (event) => {
     event.preventDefault();
     /*const userData = new FormData(formRegister);

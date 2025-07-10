@@ -25,7 +25,7 @@ $route->namespace("Source\WebService");
 
 $route->group("/users");
 
-$route->post("/login", "Users:login");
+$route->get("/login", "Users:login");
 $route->post("/add", "Users:createUser");
 
 //http://localhost:8080/acme-tarde/api/users/

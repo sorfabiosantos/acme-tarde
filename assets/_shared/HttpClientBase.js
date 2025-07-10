@@ -72,8 +72,13 @@ export default class HttpClientBase {
 
     // GET
     async get(endpoint, params = {}) {
+        //console.log(params);
         return this.#fetchWithConfig(endpoint, {
-            method: 'GET'
+            method: 'GET',
+            headers: {
+                email  : params.email || '',
+                password: params.password || ''
+            }
         }, params);
     }
 

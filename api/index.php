@@ -25,8 +25,11 @@ $route->namespace("Source\WebService");
 
 $route->group("/users");
 
+$route->get("/teste-model", "Users:testModel");
 $route->get("/login", "Users:login");
 $route->post("/add", "Users:createUser");
+$route->post("/photo", "Users:updatePhoto");
+$route->post("/file", "Users:updateFile");;
 
 //http://localhost:8080/acme-tarde/api/users/
 $route->get("/", "Users:listUsers");

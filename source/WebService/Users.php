@@ -2,11 +2,28 @@
 
 namespace Source\WebService;
 
+use Source\Models\Store\Product;
 use Source\Models\User;
 use Source\Core\JWTToken;
+use SorFabioSantos\Uploader\Uploader;
 
 class Users extends Api
 {
+    public function testModel (array $data): void
+    {
+        echo "Testando o model";
+        $product = new Product(
+            NULL,
+            1,
+            "Teste",
+            4
+        );
+
+        if(!$product->insert()) {
+            echo $product->getErrorMessage();
+        }
+    }
+
     public function listUsers (): void
     {
         $users = new User();
@@ -48,6 +65,56 @@ class Users extends Api
 
     }
 
+    public function updatePhoto (): void
+    {
+        $this->auth();
+
+        $photo = (!empty($_FILES["photo"]["name"]) ? $_FILES["photo"] : null);
+
+        $upload = new Uploader();
+        $path = $upload->Image($photo);
+        if(!$path) {
+            $this->call(400, "bad_request", $upload->getMessage(), "error")->back();
+            return;
+        }
+
+        $user = new User();
+        $user->findByEmail($this->userAuth->email);
+        $user->setPhoto($path);
+        if(!$user->updateById()){
+            $this->call(500, "internal_server_error", $user->getErrorMessage(), "error")->back();
+            return;
+        }
+
+        $this->call(200, "success", "Foto atualizada com sucesso", "success")->back();
+
+    }
+
+    public function updateFile():void
+    {
+        $this->auth();
+
+        $file = (!empty($_FILES["file"]["name"]) ? $_FILES["file"] : null);
+
+        $upload = new Uploader();
+        $path = $upload->File($file);
+        if(!$path) {
+            $this->call(400, "bad_request", $upload->getMessage(), "error")->back();
+            return;
+        }
+
+        $user = new User();
+        $user->findByEmail($this->userAuth->email);
+        $user->setPhoto($path);
+        if(!$user->updateById()){
+            $this->call(500, "internal_server_error", $user->getErrorMessage(), "error")->back();
+            return;
+        }
+
+        $this->call(200, "success", "Arquivo atualizada com sucesso", "success")->back();
+
+    }
+
     public function listUserById (array $data): void
     {
 
@@ -84,9 +151,16 @@ class Users extends Api
     public function updateUser (array $data): void
     {
         $this->auth();
-        //var_dump($data);
+        var_dump($data, $this->userAuth);
         //var_dump( $this->userAuth);
         //var_dump($this->userAuth->name, $this->userAuth->email);
+       /* $user = new User(
+            $this->userAuth->id,
+            $data["idType"],
+            $data["name"],
+            $data["email"]
+        );
+        var_dump($user);*/
     }
 
     public function login(): void

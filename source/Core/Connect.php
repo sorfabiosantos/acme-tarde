@@ -5,11 +5,6 @@ namespace Source\Core;
 use PDO;
 use PDOException;
 
-/*const CONF_DB_HOST = "mysql"; // localhost
-const CONF_DB_NAME = "db-inf-3at";
-const CONF_DB_USER = "root";
-const CONF_DB_PASS = "asdf1234"; // nada*/
-
 abstract class Connect
 {
     private const OPTIONS = [

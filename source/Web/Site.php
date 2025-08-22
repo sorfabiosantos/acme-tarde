@@ -50,14 +50,14 @@ class Site extends Controller
         echo $this->view->render("login",[]);
     }
 
-    public function register (array$data): void
+    public function register (array $data): void
     {
         echo $this->view->render("register", []);
     }
 
     public function error (array $data): void
     {
-        echo "Error {$data["errcode"]}...";
+        echo $this->view->render("error-page");
     }
 
 }

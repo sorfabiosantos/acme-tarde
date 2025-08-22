@@ -1,6 +1,6 @@
 import {
     HttpUser
-} from "../../_shared/HttpUser.js";
+} from "../../_shared/js/HttpUser.js";
 
 const formRegister = document.querySelector("#formRegister");
 

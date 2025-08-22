@@ -14,7 +14,6 @@ class Api
     {
         header('Content-Type: application/json; charset=UTF-8');
         $this->headers = getallheaders();
-        //var_dump($this->headers);
     }
 
     protected function call (int $code, string $status = null, string $message = null, $type = null): Api
@@ -58,7 +57,6 @@ class Api
         }
 
         $this->userAuth = $decoded->data;
-
     }
 
 }

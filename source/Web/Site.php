@@ -52,6 +52,7 @@ class Site extends Controller
 
     public function register (array $data): void
     {
+        // echo "Register Page...";
         echo $this->view->render("register", []);
     }
 

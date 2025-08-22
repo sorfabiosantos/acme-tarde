@@ -20,7 +20,7 @@ const CONF_DB_PORT = "33068"; // Porta do banco de dados, geralmente 3306 para M
  * Configuração de constantes para upload de imagens e arquivos.
  */
 const IMAGE_MAX_SIZE = 5 * 1024 * 1024; // 5MB
-const IMAGE_MIN_SIZE = 10 * 1024; // 10KB
+const IMAGE_MIN_SIZE = 3 * 1024; // 3KB
 
 //const IMAGE_DIR = __DIR__ . '/../../storage/images';
 const IMAGE_DIR = '/storage/images';
@@ -31,7 +31,7 @@ const ALLOWED_IMAGE_TYPES = [
     'image/jpg',
 ];
 
-const FILE_MAX_SIZE = 5 * 1024 * 1024; // 5MB
+const FILE_MAX_SIZE = 10 * 1024 * 1024; // 5MB
 const FILE_MIN_SIZE = 10 * 1024; // 10KB
 
 const FILE_DIR = '/storage/files';

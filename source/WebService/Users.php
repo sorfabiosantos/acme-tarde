@@ -80,6 +80,10 @@ class Users extends Api
 
         $user = new User();
         $user->findByEmail($this->userAuth->email);
+        if(file_exists(__DIR__ . "/../..". IMAGE_DIR . "/" . "{$user->getPhoto()}")){
+            unlink(__DIR__ . "/../.." . IMAGE_DIR . "/" . "{$user->getPhoto()}");
+        }
+
         $user->setPhoto($path);
         if(!$user->updateById()){
             $this->call(500, "internal_server_error", $user->getErrorMessage(), "error")->back();

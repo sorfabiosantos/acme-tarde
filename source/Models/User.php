@@ -13,6 +13,7 @@ class User extends Model
     protected $email;
     protected $password;
     protected $photo;
+    protected $link;
 
     public function __construct(
         int $id = null,
@@ -20,7 +21,9 @@ class User extends Model
         string $name = null,
         string $email = null,
         string $password = null,
-        string $photo = null
+        string $photo = null,
+        string $link = null
+
     )
     {
         $this->table = "users";
@@ -30,6 +33,7 @@ class User extends Model
         $this->email = $email;
         $this->password = $password;
         $this->photo = $photo;
+        $this->link = $link;
     }
 
     public function getId(): ?int
@@ -94,6 +98,16 @@ class User extends Model
 
     public function login () {
         echo "Olá, {$this->name}! Você está logado!";
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): void
+    {
+        $this->link = $link;
     }
 
     public function insert (): bool
@@ -161,6 +175,8 @@ class User extends Model
         if (!$result) {
             return false;
         }
+        $this->id = $result->id;
+        $this->link = $result->link;
         return true;
     }
 

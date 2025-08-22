@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require __DIR__ . "/vendor/autoload.php";
 
 use CoffeeCode\Router\Router;
@@ -21,7 +21,12 @@ if (preg_match('~^/?([^/]+)~', $linkRaw, $m)) {
 }
 //var_dump($link);
 $user = new User();
-if($user->findLink($link)){
+if($user->findLink($link)) {
+    $customer = [
+        "link" => $link,
+        "id" => $user->getId()
+    ];
+    $_SESSION["customer"] = $customer;
     $route->group("/{$link}");
     $route->get("/", "Customer:home");
     $route->get("/catalogo", "Customer:catalog");

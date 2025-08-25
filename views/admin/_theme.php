@@ -1,6 +1,5 @@
 <?php
 
-echo "Olá, Admin Theme Page...";
+echo "Olám Admin Theme Page...";
 
-
-echo $this->section("content");
+$this->section("content");

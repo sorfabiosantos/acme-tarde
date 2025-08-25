@@ -9,11 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="<?= url("assets/web/styles/theme.css") ?>">
-    <?php if ($this->section("specific-styles")): ?>
-        <?= $this->section("specific-styles"); ?>
+    <link rel="stylesheet" href="<?= url("assets/web/css/theme.css") ?>">
+    <?php if ($this->section("specific-style")): ?>
+        <?= $this->section("specific-style"); ?>
     <?php endif; ?>
-
 </head>
 <body>
     <header>
@@ -24,9 +23,9 @@
             </a>
             
             <ul class="nav-menu">
-                <li><a href="<?= url() ?>>" class="active">Home</a></li>
-                <li><a href="<?= url("sobre"); ?>">Sobre Nós</a></li>
-                <li><a href="/contato">Contato</a></li>
+                <li><a href="<?= url() ?>" class="active">Home</a></li>
+                <li><a href="<?= url("sobre") ?>">Sobre Nós...</a></li>
+                <li><a href="<?= url("contato") ?>">Contato</a></li>
             </ul>
             
             <section class="nav-actions">
@@ -69,8 +68,8 @@
                 <section class="footer-section">
                     <h3>Empresa</h3>
                     <ul>
-                        <li><a href="/sobre">Sobre Nós</a></li>
-                        <li><a href="<?= url() ?>">Contato</a></li>
+                        <li><a href="/sobre">Sobre Nós...</a></li>
+                        <li><a href="/contato">Contato</a></li>
                         <li><a href="/blog">Blog</a></li>
                         <li><a href="/suporte">Suporte</a></li>
                     </ul>
@@ -91,6 +90,10 @@
             </section>
         </section>
     </footer>
+
     <script type="application/javascript" src="<?= url("assets/web/js/theme.js") ?>"> </script>
+    <?php if ($this->section("specific-script")): ?>
+        <?= $this->section("specific-script"); ?>
+    <?php endif; ?>
 </body>
 </html>

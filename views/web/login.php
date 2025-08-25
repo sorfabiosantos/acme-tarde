@@ -1,7 +1,12 @@
 <?php
-
-echo "Login Page...<br>";
-
+ $this->layout("_theme", []);
+?>
+<?php
+    $this->start("specific-style");
+?>
+<link rel="stylesheet" href="<?= url("assets/web/css/login.css"); ?>"></link>
+<?php
+    $this->end();
 ?>
 
 <!-- Formulário de login -->
@@ -17,7 +22,5 @@ echo "Login Page...<br>";
     </label>
     <button>Entrar</button>
 </form>
-
-<button id="getUser">GET USER by ID</button>
 
 <script type="module" src="<?= url("assets/web/js/login.js"); ?>"></script>

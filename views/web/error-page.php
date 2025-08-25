@@ -7,3 +7,5 @@ $this->layout("_theme", [
 
 
 <section class="error-page">
+    <h1>404</h1>
+</section>

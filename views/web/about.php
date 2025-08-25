@@ -1,11 +1,8 @@
 <?php
 
-
-$this->layout("_theme", [
-    "title" => "RoomManager - Gestão Inteligente de Salas de Reunião",
-    "description" => "Transforme a gestão das suas salas de reunião com nossa plataforma completa. Agendamento inteligente, controle de disponibilidade e relatórios detalhados para pequenas e médias empresas."
-]);
+ $this->layout("_theme",[]);
 
 ?>
 
-<h1>Sobre Nós</h1>
+<h1>Oi, eu sou o Sobre.</h1>
+<p>Meu nome é <?= $name ?> e tenho <?= $age ?> anos.</p>

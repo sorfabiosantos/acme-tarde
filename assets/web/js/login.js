@@ -2,33 +2,53 @@ import {
     HttpUser
 } from "../../_shared/js/HttpUser.js";
 
-const api = new HttpUser();
+import {
+    Toast
+} from "../../_shared/js/Toast.js";
 
-console.log("API inicializada...", api);
+const requestUserLogin = new HttpUser();
+const toast = new Toast();
+
+console.log("API inicializada", requestUserLogin);
 
 const formLogin = document.querySelector("#formLogin");
 
 formLogin.addEventListener("submit", async (event) => {
     event.preventDefault();
     const loginData = new FormData(formLogin);
-    // parametrizando o FormData para um objeto simples
-    const loginResponse = {};
-    let formObj = {};
-    loginData.forEach((value, key) => {
-        formObj[key] = value;
-    });
-
+    const headers = {
+        email: loginData.get("email"),
+        password: loginData.get("password")
+    }
 
     try {
-        const loginResponse = await api.loginUser(formObj);
-        console.log("Resposta do login:", loginResponse);
+        const userLogin = await requestUserLogin.loginUser({}, headers);
+        console.log(userLogin.message, userLogin.type);
+        toast.show(userLogin.message, userLogin.type);
+        if(userLogin.type === "success") {
+            localStorage.setItem("userLogin", JSON.stringify(userLogin.data));
+            setTimeout(() => {
+                window.location.href = "./../../acme-tarde/app";
+            }, 2000);
+        }
     } catch (error) {
         console.error("Erro ao fazer login:", error);
-        console.log(loginResponse);
     }
-});
 
-document.querySelector("#getUser").addEventListener("click", async () => {
-    const user = await api.listById(38);
-    console.log("Usuário obtido:", user);
+    /*
+    try {
+        fetch("http://localhost:8080/acme-tarde/api/users/login", {
+            method: "GET",
+            headers: headers
+        }).then((response) => {
+            //console.log(response);
+            response.json().then((userLogin) => {
+                console.log(userLogin.data);
+                localStorage.setItem("token", JSON.stringify(userLogin.data));
+            });
+        })
+    } catch (error) {
+       console.error("Erro ao fazer login:", error);
+    }
+    */
 });

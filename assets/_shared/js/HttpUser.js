@@ -9,12 +9,8 @@ export class HttpUser extends HttpClientBase {
         return this.post('/add', userData);
     }
 
-    async loginUser(loginData) {
-        return this.get('/login', loginData);
-    }
-
-    async listById(id) {
-        return this.get(`/id/:id`, { id });
+    async loginUser(loginData = {}, headers = {}) {
+        return this.get('/login', loginData, headers);
     }
 
 }

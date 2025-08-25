@@ -1,5 +1,5 @@
 /* Estilos gerais para a área de app */
-@import url('../../web/styles/theme.css');
+@import url('../../web/css/theme.css');
 
 header {
     background-color: var(--primary-color);

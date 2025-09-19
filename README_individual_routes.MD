@@ -42,19 +42,23 @@ if($user->findLink($link)){
 ## Classe `source\Web\Customer.php`
 Criar a classe `Customer.php` que extende a classe `Controller.php`, que realizará o controle da renderização dos scripts na pasta `views\web`.
 ```PHP
-<?php
-
 namespace Source\Web;
 
-use League\Plates\Engine;
-
-class Controller
+class Customer extends Controller
 {
-    protected $view;
-
-    public function __construct(string $pathToView)
+    public function __construct()
     {
-        $this->view = new Engine(__DIR__ . "/../../views/{$pathToView}", "php");
+        parent::__construct("web");
+    }
+
+    public function home(): void
+    {
+        echo $this->view->render("customer-home",[]);
+    }
+
+    public function catalog(): void
+    {
+        echo $this->view->render("customer-catalog",[]);
     }
 }
 ```
